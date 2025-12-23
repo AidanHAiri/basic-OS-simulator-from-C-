@@ -11,7 +11,7 @@ public:
     
     void akun(){
         do {
-		    cout<<"masukkan  username anda:  ";
+		    cout<<"masukkan username anda:  ";
 		    cin >> baseusrname[i];
 		    cout << "masukkan password anda:  ";
 		    cin >> basepwd[i];
@@ -23,6 +23,25 @@ public:
     }
 };
 
+class command {
+    public:
+    void basic(){
+        int perintah;
+        cout << "masukkan perintah anda(angka)\n1. \n2. \n3. \n";
+        cin >> perintah;
+        switch (perintah){
+            case 1 :
+            cout << "Perintah 1\n";
+            break;
+            case 2 :
+            cout << "perintah 2\n";
+            break;
+            default :
+            cout << "perintah tidak ada dalam basic, silahkan berpindah ke mode advance";
+            break;
+        };
+    };        
+};
 int main(){
 	string usrnamelogin;
 	daftar X;
@@ -54,16 +73,29 @@ int main(){
 	
 	}
     
-	
+	command command;
 	if (verifikasi){
         system ("clear");
 		cout << "selamat datang kembali " <<X.baseusrname[v];
+        string userprofile;
+        cout << "\nchoose your profile";
+        cin >> userprofile;
+    
+        if (userprofile == "basic"){
+        command.basic();}
+        else if (userprofile == "advance"){
+        cout << "fitur ini belum tersedia";}
+        else {
+        cout << "command anda salah";}
+
 	}
 	else {
         system ("clear");
 		cout << "username atau password salah";
+        
 	}
 	
 	
-	return 0;
+    
+    return 0;
 }
