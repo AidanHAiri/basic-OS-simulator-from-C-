@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 class daftar{
@@ -23,15 +24,20 @@ public:
 };
 
 int main(){
-	int i = 0;
 	string usrnamelogin;
 	daftar X;
 	string pwd;
+    int v;
+    
+    
+    cout << "Selamat datang di Si-OS\n";
+    
+    
+    
     X.akun();
 	
-	
-	
-	
+    
+    
 	cout << "Login\nmasukkan username anda:  ";
 	cin >> usrnamelogin;
 	cout << "masukkan password anda:  ";
@@ -42,16 +48,20 @@ int main(){
 	for (int i=0; i<10; i++){
 		if (usrnamelogin == X.baseusrname[i] && pwd == X.basepwd[i]){
 		verifikasi = true;
+        v = i;
 		break;
 		} 
 	
 	}
+    
 	
 	if (verifikasi){
-		cout << "anda benar";
+        system ("clear");
+		cout << "selamat datang kembali " <<X.baseusrname[v];
 	}
 	else {
-		cout << "anda salah";
+        system ("clear");
+		cout << "username atau password salah";
 	}
 	
 	
