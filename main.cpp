@@ -19,7 +19,7 @@ public:
 		    cout << "Buat akun baru?(y/n)  ";
 		    cin >> Loop;
 	    }
-    	while (i < 10 && Loop != 'n');
+    	while (i < 10 && Loop == 'y');
     }
 };
 
@@ -49,19 +49,22 @@ int main(){
     int v;
     
     
-    cout << "Selamat datang di Si-OS\n";
+    cout << "Selamat datang di Si-OS\n>>";
+    cin >> pwd;
     
-    
-    
-    X.akun();
-	
-    
-    
+    if (pwd == "login"){
 	cout << "Login\nmasukkan username anda:  ";
 	cin >> usrnamelogin;
 	cout << "masukkan password anda:  ";
 	cin >> pwd;
+	}
+	else if (pwd == "signup"){
+	X.akun();	
+	}
+    
 	
+    
+    	
 	
 	bool verifikasi = false;
 	for (int i=0; i<10; i++){
@@ -75,9 +78,26 @@ int main(){
     
 	command command;
 	if (verifikasi){
+		#ifdef _WIN32
+		system("cls");
+		#else
         system ("clear");
+        #endif
+        
 		cout << "selamat datang kembali " <<X.baseusrname[v];
-        string userprofile;
+        
+	}
+	else {
+        #ifdef _WIN32
+		system("cls");
+		#else
+        system ("clear");
+        #endif
+		cout << "username atau password salah";
+        exit(1);
+	}
+	
+	string userprofile;
         cout << "\nchoose your profile";
         cin >> userprofile;
     
@@ -88,14 +108,6 @@ int main(){
         else {
         cout << "command anda salah";}
 
-	}
-	else {
-        system ("clear");
-		cout << "username atau password salah";
-        
-	}
-	
-	
     
     return 0;
 }
